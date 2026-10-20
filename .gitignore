@@ -1,0 +1,16 @@
+*.o
+*.out
+*.exe
+*.dll
+*.so
+*.a
+
+.vscode/
+.idea/
+*.cbp
+*.depend
+
+.DS_Store
+Thumbs.db
+
+*.log
