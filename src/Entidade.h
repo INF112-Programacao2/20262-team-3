@@ -2,7 +2,7 @@
 #define ENTIDADE_H
 
 #include <string>
-#include "Posicao.h"   //integrante 2(João)
+#include "posicao.h"   //integrante 2(João)
 
 
  // Classe base de todos os personagens que lutam (Jogador e Monstro).
@@ -17,7 +17,9 @@ protected:
     int defesaBase;
 
 public:
-    Entidade(const std::string& nome, const Posicao& posicao,
+    // A Entidade e dona da sua Posicao (que nao pode ser copiada),
+    // entao ela e construida aqui a partir de mapa, x, y, z.
+    Entidade(const std::string& nome, Mapa* mapa, int x, int y, int z,
              int vida, int ataque, int defesa);
     virtual ~Entidade() = default;   // deleta via ponteiro da base
 
@@ -36,7 +38,7 @@ public:
 
     const std::string& getNome() const;
     const Posicao& getPosicao() const;
-    void setPosicao(const Posicao& nova);
+    Posicao& getPosicao();   // para chamar movimentar() e definirMapa()
     int getVida() const;
     int getVidaMaxima() const;
 };
